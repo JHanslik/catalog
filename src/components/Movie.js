@@ -1,11 +1,11 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Data from "../Data.json";
 
 function Movie(props) {
     const params = useParams();
-    const [movie, setMovie] = useState(Data[params.id - 1]);
+    const [movie] = useState(Data[params.id - 1]);
 
     return (
         <div className="container d-flex flex-column align-items-center justify-content-center my-5 text-center text-light">
