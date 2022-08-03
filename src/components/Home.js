@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 
 function home(props) {
     return (
-        <div className="container d-flex flex-column align-items-center justify-content-center my-5 text-center">
-            <header className="mb-5">
-                <h1 className="text-light">Catalog</h1>
-            </header>
-            <main className="m-5">
-                <ul className="p-0">
+        <div className="container text-center">
+            <main>
+                <h1 className="text-light m-5">Catalog</h1>
+                <section className="d-flex flex-wrap justify-content-center">
                     {Data.map((movie) => {
-                        console.log(movie);
                         return (
-                            <li className="m-3 cursor" key={movie.title}>
-                                <Link
-                                    className="decoration text-light"
-                                    to={`/movie/${movie.id}`}
-                                >
-                                    {movie.title}
-                                </Link>
-                            </li>
+                            <Link
+                                className="decoration text-light"
+                                to={`/movie/${movie.id}`}
+                            >
+                                <article className="m-3" key={movie.title}>
+                                    <img src={movie.image} alt={movie.title} />
+                                    <h2 className="m-3 cursor fs-3">
+                                        {movie.title}
+                                    </h2>
+                                </article>
+                            </Link>
                         );
                     })}
-                </ul>
+                </section>
             </main>
         </div>
     );
